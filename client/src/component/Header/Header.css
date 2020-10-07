@@ -1,0 +1,23 @@
+.mainHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 0 0.5rem;
+}
+
+.navigation{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navigation li {
+    padding: 0 5px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+}

@@ -1,0 +1,10 @@
+.headImg {
+    height: 20rem;
+    width : 100%;
+    border-radius: 2rem;
+}
+
+.categoryContainer {
+    display: flex;
+    justify-content: center;
+}
