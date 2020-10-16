@@ -3,7 +3,10 @@ import './App.css';
 import Header from './component/Header/Header';
 import Home from './component/Home/Home';
 import Products from './component/Products/Products.js';
-import ProductDetailed from './component/ProductDetailed';
+import uploadProduct from './component/Products/uploadProduct.js';
+import ProductDetailed from './component/Products/ProductDetailed';
+import Cart from './component/Cart/Cart';
+import Auth from './component/Auth/Auth';
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,7 +22,10 @@ export default function App(){
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/products' component={Products}/>
+        <Route exact path='/uploadProduct' component={uploadProduct}/>
         <Route exact path='/productDetailed' component={ProductDetailed}/>
+        <Route exact path='/cart' component={Cart}/>
+        <Route exact path='/login' component={Auth}/>
       </Switch>
 
     </div>

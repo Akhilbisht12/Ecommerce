@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css'
 import CatComp from './CatComp';
-import ProductComp from '../ProductComp'
+import ProductComp from '../Products/ProductComp'
 import StyledHeading from '../Styled Components/StyledHeading'
 
 export default function Home() {

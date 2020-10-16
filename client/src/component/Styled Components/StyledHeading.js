@@ -1,11 +1,10 @@
 import styled, {css} from 'styled-components';
 const StyledHeading = styled.p`
     font-weight : 800;
-    display : flex;
     margin : 0;
     padding : 0;
-    margin-bottom : 1rem;
-    margin-top : 1rem;
+    margin-bottom : 0.2rem;
+    margin-top : 0.2rem;
 
     ${props => props.small && css`
     font-size : 1rem;
@@ -18,6 +17,10 @@ const StyledHeading = styled.p`
     ${props => props.large && css`
     font-size : 3rem;
   `}
+
+    ${props => props.center && css`
+      text-align : center;
+    `}
 `;
 
 export default StyledHeading;

@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <div className='mainHeader'>
             <div className="logo">
-                Ecommerce app
+                <Link to="/">Ecommerce App</Link>
             </div>
             <div className="menu">
                 <ul className='navigation'>
@@ -17,10 +17,10 @@ export default function Header() {
                         <Link to="/products">Products</Link>
                     </li>
                     <li>
-                        Clothes
+                        <Link to="/cart">Cart</Link>
                     </li>
                     <li>
-                        Login
+                        <Link to="/login">Login</Link>
                     </li>
                 </ul>
             </div>

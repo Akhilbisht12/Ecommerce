@@ -1,5 +1,7 @@
 import React from 'react';
-import StyledHeading from './Styled Components/StyledHeading'
+import StyledHeading from '../Styled Components/StyledHeading';
+import StyledButton from '../Styled Components/StyledButton';
+import Increment from '../Increment';
 
 export default function ProductDetailed() {
     const row = {
@@ -30,6 +32,11 @@ export default function ProductDetailed() {
                                 display : 'inline',
                                 borderRadius : '1rem'}}>$ 20</StyledHeading>
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    <div style={{display : 'flex', justifyContent : 'start'}}>
+                        <Increment/>
+                        <StyledButton primary>Add To cart</StyledButton>
+                    </div>
 
                 </div>
             </div>
