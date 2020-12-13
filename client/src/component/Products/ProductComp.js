@@ -14,7 +14,7 @@ export default function ProductComp(props) {
     }
 
     return (
-        <Link to='/ProductDetailed'>
+        <Link to={'/ProductDetailed/'+ props.id}>
             <div style={{textAlign : 'center', marginRight : '2rem'}}>
                 <img src={props.url} style={productImg} />
                 <p style={productTitle}>{props.name}</p>

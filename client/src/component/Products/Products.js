@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductComp from './ProductComp';
 import StyledHeading from '../Styled Components/StyledHeading'
-import StyledButton from '../Styled Components/StyledButton'
+import StyledButton from '../Styled Components/StyledButton';
 
 export default function Products() {
     const styles ={

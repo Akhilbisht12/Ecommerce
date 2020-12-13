@@ -7,6 +7,7 @@ import uploadProduct from './component/Products/uploadProduct.js';
 import ProductDetailed from './component/Products/ProductDetailed';
 import Cart from './component/Cart/Cart';
 import Auth from './component/Auth/Auth';
+import SignIn from './component/Auth/SignIn';
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,9 +24,10 @@ export default function App(){
         <Route exact path='/' component={Home}/>
         <Route exact path='/products' component={Products}/>
         <Route exact path='/uploadProduct' component={uploadProduct}/>
-        <Route exact path='/productDetailed' component={ProductDetailed}/>
+        <Route exact path='/productDetailed/:id' component={ProductDetailed}/>
         <Route exact path='/cart' component={Cart}/>
-        <Route exact path='/login' component={Auth}/>
+        <Route exact path='/signup' component={Auth}/>
+        <Route exact path='/signin' component={SignIn}/>
       </Switch>
 
     </div>

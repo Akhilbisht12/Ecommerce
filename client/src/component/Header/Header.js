@@ -20,7 +20,10 @@ export default function Header() {
                         <Link to="/cart">Cart</Link>
                     </li>
                     <li>
-                        <Link to="/login">Login</Link>
+                        <Link to="/signup">Sign UP</Link>
+                    </li>
+                    <li>
+                        <Link to="/signin">Sign In</Link>
                     </li>
                 </ul>
             </div>

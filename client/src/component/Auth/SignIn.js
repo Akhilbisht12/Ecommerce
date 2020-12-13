@@ -3,7 +3,8 @@ import StyledHeading from '../Styled Components/StyledHeading';
 import StyledButton from '../Styled Components/StyledButton';
 import Axios from 'axios';
 
-export default function Auth() {
+export default function SignIn() {
+    const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const registerUser = (e) => {
@@ -14,10 +15,17 @@ export default function Auth() {
             password
         }
 
-        Axios.post('http://localhost:5000/api/register', data)
+        Axios.post('http://localhost:5000/api/signin', data)
         .then(res=>{
-            if(res.status===400){alert('error')}
-            else{alert('user registered')}
+            if(res.status===400){
+                console.log(res.data.err);
+                alert(res.data.msg)
+            }
+            else{
+                setUser(res.data.user.email)
+                console.log(res.data.user.email)
+                alert('logged in')
+            }
         })
         .catch(err=>console.log(err));
     }
@@ -34,8 +42,8 @@ export default function Auth() {
             <div style = {{display : 'flex', width : '100%'}}>
                 <div style={{width : '50%', display : 'flex', flexDirection : 'column',
                  justifyContent : 'center', paddingRight : '4rem'}}>
-                    <StyledHeading small>Welcome On Board</StyledHeading>
-                    <StyledHeading med>Sign Up</StyledHeading>
+                    <StyledHeading small>Welcome Back!!</StyledHeading>
+                    <StyledHeading med>Sign In</StyledHeading>
                     <form onSubmit={registerUser} enctype="multipart/form-data">
                         <input style ={styles.input}
                         value={email}

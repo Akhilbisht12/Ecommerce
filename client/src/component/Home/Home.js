@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Home.css'
 import CatComp from './CatComp';
 import ProductComp from '../Products/ProductComp'
-import StyledHeading from '../Styled Components/StyledHeading'
+import StyledHeading from '../Styled Components/StyledHeading';
+import Axios from 'axios';
+import LocalStorage from 'local-storage'
 
 export default function Home() {
+    const elements=[];
+    const [ products, setProducts] = useState([]);
+    useEffect(()=>{
+        Axios.get('http://localhost:5000/api/getProducts')
+        .then((res)=>{
+            setProducts(res.data);
+        })
+    },[]);
+
     return (
         <div className='homeContainer'>
             <div className='carousel'>
@@ -43,25 +54,18 @@ export default function Home() {
                 <StyledHeading style={{marginTop : '3rem'}}>View All</StyledHeading>
             </div>
             <div className='displayProduct' style={{display : 'flex', justifyContent : 'center'}}>
-                <ProductComp 
-                url='https://fossil.scene7.com/is/image/FossilPartners/FS5305-alt?$sfcc_fos_medium$'
-                name = 'Some Watch'
-                price = 'Very Expensive'/>
-
-                <ProductComp 
-                url='https://images.casiocdn.com/fit-in/368x500/casio-v2/resource/images/products/watches/hd/GGB100-1A9_hd.png'
-                name = 'Some Watch'
-                price = 'Very Expensive'/>
-
-                <ProductComp 
-                url='https://images-na.ssl-images-amazon.com/images/I/910D0vQR2HL._UL1500_.jpg'
-                name = 'Some Watch'
-                price = 'Very Expensive'/>
-
-                <ProductComp 
-                url='https://fossil.scene7.com/is/image/FossilPartners/FS5305-alt?$sfcc_fos_medium$'
-                name = 'Some Watch'
-                price = 'Very Expensive'/>
+                {products.forEach(product => {
+                    if(product.subcategory === 'Shirts' && elements.length<8){
+                        elements.push(<ProductComp
+                        url={product.image_url}
+                        name={product.name}
+                        price={product.price}
+                        id={product._id}
+                        key={product._id}
+                        />)
+                    }
+                })};
+                {elements}
             </div>
 
             <div style={{display : 'flex', justifyContent : 'space-between'}}>
@@ -92,4 +96,5 @@ export default function Home() {
 
         </div>
     )
+module.exports = { products}
 }
