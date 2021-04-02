@@ -61,7 +61,7 @@ export default function ProductDetailed(props) {
             <div style={row} className='imgDetailContainer'>
                 <div style={col}>
                     <img src={item.image_url}
-                     style={{width : '100%', borderRadius : '2rem', height : '30rem'}}/>
+                     style={{borderRadius : '2rem'}}/>
                 </div>
                 <div style={col}>
                     <StyledHeading med>{item.name}</StyledHeading>

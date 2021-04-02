@@ -1,23 +1,69 @@
 .mainHeader{
     display: flex;
+    padding : 1.5rem 4rem;
+    flex-direction: column;
+}
+
+.logoHeader {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding : 0 0.5rem;
 }
 
 .navigation{
     list-style: none;
     display: flex;
     justify-content: space-evenly;
+    padding: 0;
 }
 
 .navigation li {
-    padding: 0 5px;
+    padding: 0 1rem;
     font-weight: 600;
     font-size: 1rem;
 }
 
 .logo {
-    font-size: 1.7rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.search input {
+    border : 0;
+    padding: 0.8rem;
+    width: 20rem;
+    margin: 2px;
+}
+
+.search button {
+    background: black;
+    border: none;    
+    color: white;
+    height: 2rem;
+}
+
+.search {
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+}
+
+.search div {
+    height: '100%';
+    background: black;
+    align-items: center;
+    display: flex;
+    padding: 0 1rem;
+}
+
+.categories {
+    list-style: none;
+    display: flex;
+    justify-content: start;
+    padding: 0;
+}
+
+.categories li {
+    margin-right: 2rem;
+    font-size: 1.15rem;
 }

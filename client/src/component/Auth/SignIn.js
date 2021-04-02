@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import StyledHeading from '../Styled Components/StyledHeading';
 import StyledButton from '../Styled Components/StyledButton';
 import Axios from 'axios';
+import LocalStorage from 'local-storage';
 
 export default function SignIn() {
-    const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const registerUser = (e) => {
+    const loginUser = (e) => {
         e.preventDefault();
         
         const data = {
@@ -17,13 +17,14 @@ export default function SignIn() {
 
         Axios.post('http://localhost:5000/api/signin', data)
         .then(res=>{
+            console.log(res)
             if(res.status===400){
-                console.log(res.data.err);
+                console.log(res.data);
                 alert(res.data.msg)
             }
-            else{
-                setUser(res.data.user.email)
-                console.log(res.data.user.email)
+            else if(res.status === 200){
+                console.log(res.data.user)
+                LocalStorage.set('user',JSON.stringify(res.data.user))
                 alert('logged in')
             }
         })
@@ -44,7 +45,7 @@ export default function SignIn() {
                  justifyContent : 'center', paddingRight : '4rem'}}>
                     <StyledHeading small>Welcome Back!!</StyledHeading>
                     <StyledHeading med>Sign In</StyledHeading>
-                    <form onSubmit={registerUser} enctype="multipart/form-data">
+                    <form onSubmit={loginUser} enctype="multipart/form-data">
                         <input style ={styles.input}
                         value={email}
                         onChange={e =>{setEmail(e.target.value)}}
@@ -53,7 +54,7 @@ export default function SignIn() {
                         value={password}
                         onChange={e=>{setPassword(e.target.value)}}
                         />
-                        <StyledButton primary onClick={registerUser}>Sign Up</StyledButton>
+                        <StyledButton primary onClick={loginUser}>Sign In</StyledButton>
                     </form>
                 </div>
                 <div style={{width : '50%'}}>
